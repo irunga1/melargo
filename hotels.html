@@ -341,7 +341,7 @@
                 this.firstProp = firstProp
             }
             getData = async () => {
-                const api = await fetch("http://localhost/jstest/info.json");
+                const api = await fetch("https://melargo.onrender.com/info.json");
                 let data = await api.json();
                 var data1 = data[0];
                 var position = await this.getPosition();                
