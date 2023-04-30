@@ -388,7 +388,7 @@
                     url  = url+depto;
                 }
                 
-                const api = await fetch("http://localhost/melargo/info.json");
+                const api = await fetch("http://melargo.onrender/info.json");
                 let data = await api.json();
                 var data1 = data[0];
                 var position = await this.getPosition();                
