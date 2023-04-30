@@ -380,7 +380,7 @@
                 var loading = document.getElementById("loading");
                 loading.classList.remove("hidden");
                 
-                var url = "https://melargo.onrender.com/info.json";
+                var url = "//melargo.onrender.com/info.json";
                 if(btn == 1){
                     url  = url;
                 }
@@ -388,7 +388,7 @@
                     url  = url+depto;
                 }
                 
-                const api = await fetch("//melargo.onrender.com/info.json"); 
+                const api = await fetch(url); 
                 // const api = await fetch("http://localhost/melargo/info.json");  
                 //--
                 let data = await api.json();
