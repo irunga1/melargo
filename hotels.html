@@ -157,6 +157,7 @@
 
                 </div>
                 <div id="searcher">
+                    
 
                 </div>
 
@@ -164,7 +165,7 @@
             <div class="col-md-1"></div>
         </div>
     </div>
-    <div class = "hidden" id="loading"> <span>Cargando</span> </div>
+    <div class = "hidden" id="loading"> <span><i class="bi bi-send-fill"></i></span> </div>
     <style>
         body {
             background-color:#eceff4;
@@ -368,7 +369,15 @@
                 width: 100%;
                 margin-left: 0px;
             }
+            #ItemList {
+                overflow-y: none;
+                max-height: 100%;
+            }
 
+        }
+        #ItemList {
+            overflow-y: scroll;
+            max-height: 60%;
         }
     </style>
     <script>
@@ -381,6 +390,7 @@
                 loading.classList.remove("hidden");
                 
                 var url = "//melargo.onrender.com/info.json";
+                // var url = "http://localhost/melargo/info.json"; 
                 if(btn == 1){
                     url  = url;
                 }
@@ -389,6 +399,7 @@
                 }
                 
                 const api = await fetch(url); 
+                // const api = await fetch("http://localhost/melargo/info.json");  
                 // const api = await fetch("http://localhost/melargo/info.json");  
                 //--
                 let data = await api.json();
@@ -410,7 +421,7 @@
                     var coords2 =[];
                     if(isChecked == true){
                         var geo = new GeoIp();
-                        var strItems = ""
+                        var strItems = "<h3 style= 'color:orange'>Estos son tus Resultados:</h3>";
                         var result = await  data.map( async(el)=>{
                             // console.log(el);                        
                             
@@ -451,7 +462,7 @@
 
                     }
                     else{      
-                        var strItems = ""                  
+                        var strItems = "<h3>Estos son tus Resultados:</h3>";                  
                         var result = await data.map(async (el)=>{                                  
                         coords2 = {
                             latitud: parseFloat(el.latitud) ,
